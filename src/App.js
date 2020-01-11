@@ -20,7 +20,7 @@ class App extends React.Component {
       <div className="container">
         <Header />
         <AddTask />
-        <TaskCount />
+        <TaskCount taskCount={this.state.tasks.length} />
         <TaskList />
       </div>
     );
