@@ -5,7 +5,7 @@ class Task extends React.Component {
     return (
       <div className="row taskRow">
         <div className="col-12 col-md-8">
-          Buy Milk
+          {this.props.item.description}
         </div>
         <div className="col-6 col-md-2">
           <button type="button" class="btn btn-success">

@@ -21,7 +21,7 @@ class App extends React.Component {
         <Header />
         <AddTask />
         <TaskCount taskCount={this.state.tasks.length} />
-        <TaskList />
+        <TaskList taskCollection={this.state.tasks} />
       </div>
     );
   }

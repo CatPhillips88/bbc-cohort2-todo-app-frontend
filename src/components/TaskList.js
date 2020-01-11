@@ -5,8 +5,11 @@ class TaskList extends React.Component {
   render() {
     return (
       <div>
-        <Task />
-        <Task />
+        {
+          this.props.taskCollection.map(
+            (taskItem)=><Task item={taskItem} />
+          )
+        }
       </div>
     );
   }
