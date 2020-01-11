@@ -6,6 +6,15 @@ import TaskCount from "./components/TaskCount";
 import TaskList from "./components/TaskList";
 
 class App extends React.Component {
+
+  state = {
+    tasks: [
+      { id: 1, description: "Buy some dog food", completed: false },
+      { id: 2, description: "Buy the newspaper", completed: false },
+      { id: 3, description: "Add state to my react application", completed: false }
+    ]
+  }
+  
   render() {
     return (
       <div className="container">
@@ -16,6 +25,8 @@ class App extends React.Component {
       </div>
     );
   }
+
+
 }
 
 export default App;
