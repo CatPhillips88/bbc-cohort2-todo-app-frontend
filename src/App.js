@@ -14,6 +14,21 @@ class App extends React.Component {
       { id: 3, description: "Add state to my react application", completed: false }
     ]
   }
+
+  deleteTask = (taskId) => {
+    // Tasks will be deleted when this function executes
+
+    // Firstly get the list of tasks from state
+    const tasks = this.state.tasks;
+
+    // Next, identify the task that matches the given task Id and remove it
+    const updatedTasks = tasks.filter(item => item.id !== taskId);
+
+    // Update the state with the new collection of tasks (IE. Without the one we deleted)
+    this.setState({
+      tasks: updatedTasks
+    });
+  }
   
   render() {
     return (
@@ -21,7 +36,7 @@ class App extends React.Component {
         <Header />
         <AddTask />
         <TaskCount taskCount={this.state.tasks.length} />
-        <TaskList taskCollection={this.state.tasks} />
+        <TaskList taskCollection={this.state.tasks} deleteTaskFunc={this.deleteTask} />
       </div>
     );
   }

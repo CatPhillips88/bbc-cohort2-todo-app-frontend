@@ -3,7 +3,7 @@ import React from "react";
 class Task extends React.Component {
 
   deleteClicked = () => {
-    alert('You clicked the delete button');
+    this.props.deleteTaskFunc(this.props.item.id);
   }
 
 
