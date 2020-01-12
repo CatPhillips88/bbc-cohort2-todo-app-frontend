@@ -1,6 +1,12 @@
 import React from "react";
 
 class Task extends React.Component {
+
+  deleteClicked = () => {
+    alert('You clicked the delete button');
+  }
+
+
   render() {
     return (
       <div className="row taskRow">
@@ -13,7 +19,7 @@ class Task extends React.Component {
           </button>
         </div>
         <div className="col-6 col-md-2">
-          <button type="button" class="btn btn-danger">
+          <button type="button" class="btn btn-danger" onClick={this.deleteClicked}>
             Delete
           </button>
         </div>
