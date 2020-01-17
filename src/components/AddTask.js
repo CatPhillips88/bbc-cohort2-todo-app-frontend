@@ -1,6 +1,11 @@
 import React from "react";
 
 class AddTask extends React.Component {
+
+  addTask = () => {
+    this.props.addTaskFunc("Pickup the shopping");
+  }
+
   render() {
     return (
       <div className="row">
@@ -12,7 +17,7 @@ class AddTask extends React.Component {
               placeholder="Task to add...."
             />
             <div className="input-group-append">
-              <button className="btn btn-outline-primary" type="button">
+              <button className="btn btn-outline-primary" type="button" onClick={this.addTask}>
                 Add
               </button>
             </div>

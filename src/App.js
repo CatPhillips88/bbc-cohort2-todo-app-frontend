@@ -29,12 +29,29 @@ class App extends React.Component {
       tasks: updatedTasks
     });
   }
+
+  addTask = (taskDescription) => {
+
+    // Firstly define the task that is being added
+    const taskToAdd = { id: 7, description: taskDescription, completed: false };
+
+    // Get the current list of tasks from state
+    const currentTasks = this.state.tasks;
+
+    // add the 'taskToAdd' to the array of tasks in state
+    currentTasks.push(taskToAdd);
+    // update the state
+    this.setState({
+      tasks: currentTasks
+    });
+
+  }
   
   render() {
     return (
       <div className="container">
         <Header />
-        <AddTask />
+        <AddTask addTaskFunc={this.addTask} />
         <TaskCount taskCount={this.state.tasks.length} />
         <TaskList taskCollection={this.state.tasks} deleteTaskFunc={this.deleteTask} />
       </div>
