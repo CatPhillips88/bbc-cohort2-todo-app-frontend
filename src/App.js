@@ -4,14 +4,15 @@ import Header from "./components/Header";
 import AddTask from "./components/AddTask";
 import TaskCount from "./components/TaskCount";
 import TaskList from "./components/TaskList";
+import uuidv4 from 'uuid/v4';
 
 class App extends React.Component {
 
   state = {
     tasks: [
-      { id: 1, description: "Buy some dog food", completed: false },
-      { id: 2, description: "Buy the newspaper", completed: false },
-      { id: 3, description: "Add state to my react application", completed: false }
+      { id: uuidv4(), description: "Buy some dog food", completed: false },
+      { id: uuidv4(), description: "Buy the newspaper", completed: false },
+      { id: uuidv4(), description: "Add state to my react application", completed: false }
     ]
   }
 
@@ -33,7 +34,10 @@ class App extends React.Component {
   addTask = (taskDescription) => {
 
     // Firstly define the task that is being added
-    const taskToAdd = { id: 7, description: taskDescription, completed: false };
+    const taskToAdd = { id: uuidv4(), description: taskDescription, completed: false };
+
+    console.log("Adding task");
+    console.log(taskToAdd);
 
     // Get the current list of tasks from state
     const currentTasks = this.state.tasks;

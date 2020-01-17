@@ -14,12 +14,12 @@ class Task extends React.Component {
           {this.props.item.description}
         </div>
         <div className="col-6 col-md-2">
-          <button type="button" class="btn btn-success">
+          <button type="button" className="btn btn-success">
             Done
           </button>
         </div>
         <div className="col-6 col-md-2">
-          <button type="button" class="btn btn-danger" onClick={this.deleteClicked}>
+          <button type="button" className="btn btn-danger" onClick={this.deleteClicked}>
             Delete
           </button>
         </div>
