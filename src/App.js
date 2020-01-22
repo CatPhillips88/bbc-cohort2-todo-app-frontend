@@ -4,17 +4,20 @@ import Header from "./components/Header";
 import AddTask from "./components/AddTask";
 import TaskCount from "./components/TaskCount";
 import TaskList from "./components/TaskList";
-import uuidv4 from 'uuid/v4';
+import uuidv4 from "uuid/v4";
 
 class App extends React.Component {
-
   state = {
     tasks: [
       { id: uuidv4(), description: "Buy some dog food", completed: false },
       { id: uuidv4(), description: "Buy the newspaper", completed: false },
-      { id: uuidv4(), description: "Add state to my react application", completed: false }
+      {
+        id: uuidv4(),
+        description: "Add state to my react application",
+        completed: false
+      }
     ]
-  }
+  };
 
   deleteTask = (taskId) => {
     // Tasks will be deleted when this function executes
@@ -29,12 +32,19 @@ class App extends React.Component {
     this.setState({
       tasks: updatedTasks
     });
+  };
+
+  completeTask = (taskId) => {
+    alert(`You want to delete ${taskId} from state/App`)
   }
 
   addTask = (taskDescription) => {
-
     // Firstly define the task that is being added
-    const taskToAdd = { id: uuidv4(), description: taskDescription, completed: false };
+    const taskToAdd = {
+      id: uuidv4(),
+      description: taskDescription,
+      completed: false
+    };
 
     console.log("Adding task");
     console.log(taskToAdd);
@@ -48,21 +58,22 @@ class App extends React.Component {
     this.setState({
       tasks: currentTasks
     });
+  };
 
-  }
-  
   render() {
     return (
       <div className="container">
         <Header />
         <AddTask addTaskFunc={this.addTask} />
         <TaskCount taskCount={this.state.tasks.length} />
-        <TaskList taskCollection={this.state.tasks} deleteTaskFunc={this.deleteTask} />
+        <TaskList
+          taskCollection={this.state.tasks}
+          deleteTaskFunc={this.deleteTask}
+          completedTaskFunc={this.completeTask}
+        />
       </div>
     );
   }
-
-
 }
 
 export default App;
