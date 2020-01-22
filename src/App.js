@@ -11,11 +11,7 @@ class App extends React.Component {
     tasks: [
       { id: uuidv4(), description: "Buy some dog food", completed: false },
       { id: uuidv4(), description: "Buy the newspaper", completed: false },
-      {
-        id: uuidv4(),
-        description: "Add state to my react application",
-        completed: false
-      }
+      { id: uuidv4(), description: "Add state to my react application", completed: false }
     ]
   };
 
@@ -35,7 +31,22 @@ class App extends React.Component {
   };
 
   completeTask = (taskId) => {
-    alert(`You want to delete ${taskId} from state/App`)
+    // Firstly find the task that needs to be updated
+    const tasksBeingUpdated = this.state.tasks; // Array of tasks
+    for( let i = 0; i < tasksBeingUpdated.length; i++ ) {
+      const task = tasksBeingUpdated[i];
+
+      if(task.id === taskId ) {
+        // We need to update a property on the identified task
+        task.completed = true;
+        break;
+      }
+    }
+
+    // Update state to reflect the changes made to the task
+    this.setState({
+      tasks: tasksBeingUpdated
+    });
   }
 
   addTask = (taskDescription) => {
