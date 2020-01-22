@@ -6,6 +6,10 @@ class Task extends React.Component {
     this.props.deleteTaskFunc(this.props.item.id);
   }
 
+  doneClicked = () => {
+    alert(`You clicked done for task ${this.props.item.id}`);
+  }
+
 
   render() {
     return (
@@ -14,7 +18,7 @@ class Task extends React.Component {
           {this.props.item.description}
         </div>
         <div className="col-6 col-md-2">
-          <button type="button" className="btn btn-success">
+          <button type="button" className="btn btn-success" onClick={this.doneClicked}>
             Done
           </button>
         </div>
